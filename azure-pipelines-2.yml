@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool:default
+pool: default
 
 steps:
 - task: ArchiveFiles@2
@@ -16,9 +16,10 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(System.DefaultWorkingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
+
 - task: AzureWebApp@1
   inputs:
-    azureSubscription: 'Azure subscription 1(3)(bd84a417-bb0c-47eb-a542-44e40790e455)'
+    azureSubscription: 'Azure subscription 1(bd84a417-bb0c-47eb-a542-44e40790e455)'
     appType: 'webApp'
     appName: '19K0185A1-ServicePlan'
     package: '$(System.DefaultWorkingDirectory)/*.zip'
